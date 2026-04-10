@@ -1,0 +1,257 @@
+body{
+margin:0;
+font-family:Segoe UI;
+color:white;
+background:black;
+overflow-x:hidden;
+}
+
+canvas{
+position:fixed;
+top:0;
+left:0;
+z-index:-1;
+}
+
+/* HERO */
+
+.hero{
+text-align:center;
+padding:80px 20px;
+}
+
+.hero img{
+width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 5px solid white;
+  object-fit: cover;
+  box-shadow: 0 0 40px white,0 0 80px rgba(255,255,255,0.6);
+  position: relative;
+  z-index: 1;
+
+  animation: floatInSpace 6s ease-in-out infinite;
+}
+
+@keyframes floatInSpace {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+
+.hero h1{
+  font-family: 'orbitron', sans-serif;
+  font-size:48px;
+  letter-spacing: 3px;
+  margin-top:20px;
+  color: white;
+  /* glow effect */
+  text-shadow:
+0 0 3px white,
+0 0 8px rgba(0, 234, 255, 0.6);
+font-weight:700;
+/* black outline */
+-webkit-text-stroke:1.5px black;
+
+}
+
+.hero p{
+ font-family: 'orbitron', sans-serif;
+ font-size:40px;
+ letter-spacing: 3px;
+  margin-top:20px;
+  color: white;
+  font-weight:700;
+  /* black outline */
+-webkit-text-stroke:1.5px black;
+}
+
+/* CONTAINER */
+
+.container{
+max-width:1000px;
+margin:auto;
+padding:40px 20px;
+}
+.container h2 {
+  text-align: center;
+  font-family: 'orbitron', sans-serif;
+  -webkit-text-stroke:1.5px black;
+}
+
+/* GLASSMORPHISM CARD */
+
+.glass-card{
+  background: rgba(255, 255, 255, 0.03); /* Aur bhi zyada transparent */
+  border-radius: 12px; /* Thode sharp corners */
+  padding: 25px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  /* Cyan border jo bohot faint ho */
+  border: 1px solid rgba(0, 234, 255, 0.1);
+  margin-top: 20px;
+  
+  /* Very soft glow initially */
+  box-shadow: 0 4px 15px rgba(0, 234, 255, 0.05);
+  transition: 0.3s ease-in-out;
+
+}
+
+.glass-card:hover{
+  transform: translateY(-8px);
+  background: rgba(0, 234, 255, 0.05); /* Subtle cyan tint */
+  
+  /* Glowing Border */
+  border-color: rgba(0, 234, 255, 0.8);
+  
+  /* Strong Cyan Glow (Shadow) */
+  box-shadow: 
+    0 0 20px rgba(0, 234, 255, 0.4),
+    0 0 40px rgba(0, 234, 255, 0.2);
+}
+
+/* GRID */
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+/* QUOTE */
+
+.quote{
+text-align:center;
+font-size:22px;
+font-style:italic;
+color:#facc15;
+margin:50px 0;
+background:black;
+}
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:20px;
+background:black;
+color:#aaa;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:600px){
+
+.hero h1{
+font-size:32px;
+}
+
+.container{
+padding:20px;
+}
+
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+
+/* Mobile Responsive */
+@media (max-width:768px){
+
+.hero{
+padding:40px 15px;
+text-align:center;
+}
+
+.hero img{
+width:100px;
+}
+
+.hero h1{
+font-size:28px;
+padding:6px 14px;
+}
+
+.hero p{
+font-size:16px;
+}
+
+.container{
+padding:20px 15px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:1fr;
+gap:15px;
+}
+
+.glass-card{
+padding:15px;
+}
+
+.quote{
+font-size:18px;
+padding:20px;
+}
+
+footer{
+font-size:14px;
+padding:15px;
+}
+
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;       
+  font-family: Arial, sans-serif;
+  color: white;
+  width: 100%;
+  height: 100%;
+}
+
+/* Earth background */
+body {
+  background-image: url('Img/back.jpg');   
+  background-size: cover;               
+  background-position: center top;     
+  background-repeat: no-repeat;
+  background-attachment: scroll;        
+  position: relative;
+ 
+}
+
+/* Overlay fade layer (text clear rahe) */
+body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: -10;
+  z-index: -1;     
+  
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #000; /* Black track */
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 234, 255, 0.4); /* Cyan thumb matching your theme */
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 234, 255, 0.8); /* Darker cyan on hover */
+}
