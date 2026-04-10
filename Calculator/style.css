@@ -1,0 +1,85 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background: #f8e1f2;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+.calculator {
+  background: #f5c8f0;
+  border-radius: 25px;
+  padding: 20px;
+  width: 360px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15), 0 5px 10px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+/* Display */
+.display {
+  background: #eacff0;
+  border-radius: 20px;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15), 0 5px 10px rgba(0,0,0,0.1);
+
+}
+
+#calculation { font-size: 1.2rem; color: #555; }
+#result { font-size: 2rem; color: #333; margin-top: 5px; }
+
+/* Buttons grid */
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+
+button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  color: black;
+  transition: all 0.2s ease;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2), inset 0 -3px rgba(255,255,255,0.2);
+}
+
+button:hover {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.25), inset 0 -3px rgba(255,255,255,0.3);
+}
+
+/* KEYBOARD BUTTON HANDLE */
+button:active, button.keyboard-press {
+  transform: translateY(5px) scale(0.88);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2), inset 0 2px rgba(255,255,255,0.2);
+}
+
+/* COLOR OF CALCULATOR  */
+.number { background: #fffacd; }      /* soft yellow */
+.operator { background: #d1b3ff; }    /* soft purple */
+.clear { background: #ff7f7f; }       /* red-ish */
+.equals { background: #a0e7ff; }      /* blue */
+.top-btn { background: #e0b3ff; }     /* top memory buttons */
+#paren-btn { background: #ffa7c4; }   /* pink parentheses toggle */
+
+/*CORNER CUTE BOW */
+.bow{
+position:absolute;
+top: -20px;
+right: -10px;
+width:120px;
+pointer-events:none;
+z-index: 10;
+transform: rotate(15deg);
+}
+
