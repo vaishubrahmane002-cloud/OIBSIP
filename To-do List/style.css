@@ -1,0 +1,315 @@
+body {
+    font-family: 'Poppins', 'Segoe UI', sans-serif; 
+    background: linear-gradient(135deg, #ffd6ec, #d6f0ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+    margin: 0;
+    transition: 0.5s;
+    position: relative;
+    padding: 20px 0; 
+}
+
+body::before {
+    content:"";
+    position:absolute;
+    width:400px; height:400px;
+    background: radial-gradient(circle at 30% 30%, #ffd6ec, transparent 70%);
+    border-radius:50%;
+    filter: blur(50px);
+    opacity:0.5;
+    top:50px; left:100px;
+    animation: floatBlob 15s infinite alternate;
+    z-index: 0;
+}
+
+@keyframes floatBlob {
+    0% { transform: translate(0,0) scale(1); }
+    50% { transform: translate(50px, -30px) scale(1.2); }
+    100% { transform: translate(-20px,40px) scale(0.9); }
+}
+
+.profile {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    margin-bottom:15px;
+}
+
+.profile-pic {
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    border:3px solid #ff9acb;
+    object-fit:cover;
+    box-shadow:0 5px 15px rgba(255,154,203,0.3);
+    transition:0.3s;
+}
+
+.profile-pic:hover { transform:scale(1.1); }
+
+.username {
+    margin-top:8px;
+    font-weight:bold;
+    font-size:18px;
+    color:#ff9acb;
+}
+
+.container {
+    position: relative; 
+    width: 700px;
+    min-height: 550px; 
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    background: white;
+    text-align: center;
+    z-index: 10;
+    display: flex;         /* Flexbox use karein layout control ke liye */
+    flex-direction: column;
+}
+
+h1 { 
+    margin-bottom:20px; 
+    font-size: 24px;
+}
+
+.input-box { 
+    display:flex; 
+    gap:10px; 
+}
+
+.input-box input {
+    flex:1; 
+    padding:15px 20px; 
+    font-size:16px;
+    border-radius:20px; 
+    border:2px solid #ddd; 
+    outline:none; 
+    transition:0.2s;
+}
+
+.input-box input:focus { 
+    border-color:#ff9acb; 
+}
+
+.input-box button {
+    padding:15px 25px; 
+    font-size:16px; 
+    border-radius:20px;
+    background:#ff9acb; 
+    border:none; 
+    color:white; 
+    cursor:pointer; 
+    transition:0.2s;
+}
+.input-box button:hover { 
+    transform:scale(1.08); 
+}
+
+
+.lists-container { 
+    margin-top: 20px; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 15px; 
+    overflow: hidden;
+    max-height: 350px; /* Aap is value ko adjust kar sakti hain apne hisaab se */
+    overflow-y: auto;  
+    padding-right: 5px;
+}
+
+.list-section { 
+    text-align: left; 
+}
+
+.list-title { 
+    font-size: 16px; 
+    color: #ff9acb; 
+    margin-bottom: 10px; 
+    padding-left: 5px; 
+}
+
+.task-list {
+    list-style:none; 
+    padding:0; 
+    margin:0;
+    padding-right: 5px;
+}
+
+.task-list::-webkit-scrollbar { 
+    width: 6px; 
+}
+
+.task-list::-webkit-scrollbar-track { 
+    background: #f1f1f1; 
+    border-radius: 10px; 
+}
+
+.task-list::-webkit-scrollbar-thumb { 
+    background: #ffb6c1; 
+    border-radius: 10px; 
+}
+
+li {
+    background:#f9f9f9; 
+    padding:12px 15px; 
+    border-radius:15px; 
+    margin-bottom:10px;
+    display:flex; 
+    align-items:center; 
+    justify-content:space-between;
+    transition:0.2s; 
+    border: 1px solid transparent;
+}
+
+li:hover { 
+    transform:scale(1.01); 
+    box-shadow:0 5px 15px rgba(255,154,203,0.2); 
+}
+
+.task-info { 
+    display:flex; 
+    align-items:center; 
+    gap:12px; 
+    flex: 1; 
+}
+
+.task-info input[type="checkbox"] { 
+    width:20px; 
+    height:20px; 
+    accent-color:#ff9acb; 
+    cursor:pointer; 
+}
+
+.task-text-container { 
+    display: flex; 
+    flex-direction: column; 
+}
+
+.task-text { 
+    font-size: 16px; 
+    color: #333; 
+    transition: 0.3s; 
+}
+
+.task-time { 
+    font-size: 11px; 
+    color: #888; 
+    margin-top: 2px; 
+}
+
+
+.completed-task .task-text { 
+    text-decoration:line-through; 
+    color:#aaa; 
+}
+
+/* Action Buttons (Edit & Delete) */
+.actions { 
+    display: flex; 
+    gap: 10px; 
+}
+
+.action-btn { 
+    cursor:pointer; 
+    font-size: 20px; 
+    transition:0.2s; 
+    user-select: none; 
+}
+
+.action-btn:hover { 
+    transform:scale(1.2); 
+}
+
+.edit-btn:hover { 
+    color: #4facfe; 
+}
+
+.delete-btn:hover { 
+    color: #ff4d6d; 
+}
+
+.progress-container { 
+    margin-top:25px; 
+}
+
+.progress-bar { 
+    width:100%; 
+    height:12px; 
+    background:#eee; 
+    border-radius:10px; 
+    overflow:hidden; 
+}
+
+#progressFill { 
+    height:100%; 
+    width:0%; 
+    background: linear-gradient(90deg, #ff9acb, #ffc478, #a8ff78, #78ffd6, #a878ff); 
+    transition:0.4s; 
+}
+
+.footer { 
+    margin-top:15px; 
+    font-size:12px; 
+    color:#888; 
+}
+
+.toggle { 
+    position:absolute; 
+    top:20px; 
+    right:20px;
+}
+
+.toggle button { 
+    background: white;
+    color: #333; 
+    border: 2px solid #ddd; 
+    padding: 8px 15px; 
+    border-radius: 20px; 
+}
+
+/* Dark Mode */
+.dark { 
+    background:linear-gradient(135deg,#1e1e2f,#2c2c44, #0b0c27, #1a1a3d); 
+    color: whitesmoke; 
+}
+
+.dark .container { 
+    background:#2c2c44; 
+    color: white; 
+    box-shadow: 0 15px 30px rgba(0,0,0,0.4); 
+}
+
+.dark li { 
+    background:#3b3b5a; 
+}
+
+.dark .list-title { 
+    color: #ffb6c1; 
+}
+
+.dark .task-text { 
+    color: whitesmoke; 
+}
+
+.dark .task-time { 
+    color: #bbb; 
+}
+
+.dark .input-box input { 
+    background:#3b3b5a; 
+    border-color:#555; 
+    color:white; 
+}
+
+.dark .progress-bar { 
+    background:#555; 
+}
+
+.dark .toggle button { 
+    background: #3b3b5a; 
+    color: white; 
+    border-color: #555; 
+}
